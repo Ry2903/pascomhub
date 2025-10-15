@@ -34,6 +34,8 @@ PascomHub é uma plataforma web moderna desenvolvida para agilizar o gerenciamen
 - Layout responsivo para dispositivos móveis.
 ---
 ## 🛠 Tecnologias Utilizadas
+[![My Skills](https://skillicons.dev/icons?i=html,css,javascript,firebase,vercel&)](https://skillicons.dev)
+
 - Frontend: HTML, CSS, JavaScript
 - Backend & Autenticação: Firebase Auth
 - Banco de Dados: Firestore

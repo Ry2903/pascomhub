@@ -119,60 +119,63 @@ if (isset($_POST['atividade_dominical'])) {
 <head>
     <meta charset="UTF-8">
     <title>Criar Evento - PascomHub</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-<h2>Criar Evento - Coordenador</h2>
+<div style="max-width:800px;margin:30px auto;padding:25px;background-color:#fff;border-radius:15px;box-shadow:0 0 20px rgba(0,0,0,0.2);">
 
-<?php if($msg) echo "<p style='color:green'>$msg</p>"; ?>
+    <h2 style="text-align:center;color:#FFD700;">Criar Evento - Coordenador</h2>
+    <?php if($msg) echo "<p style='color:green;text-align:center;'>$msg</p>"; ?>
 
-<!-- Formulário Evento Extraordinário -->
-<h3>Evento Extraordinário</h3>
-<form method="POST">
-    <label>Descrição do evento:</label><br>
-    <input type="text" name="descricao" required><br><br>
+    <!-- Formulário Evento Extraordinário -->
+    <h3 style="color:#003366;">Evento Extraordinário</h3>
+    <form method="POST">
+        <label>Descrição do evento:</label><br>
+        <input type="text" name="descricao" required><br><br>
 
-    <label>Data:</label><br>
-    <input type="date" name="data" required><br><br>
+        <label>Data:</label><br>
+        <input type="date" name="data" required><br><br>
 
-    <label>Horário:</label><br>
-    <select name="horario">
-        <option value="07h30">07h30</option>
-        <option value="09h30">09h30</option>
-        <option value="19h">19h</option>
-        <option value="outros">Outros</option>
-    </select><br><br>
+        <label>Horário:</label><br>
+        <select name="horario">
+            <option value="07h30">07h30</option>
+            <option value="09h30">09h30</option>
+            <option value="19h">19h</option>
+            <option value="outros">Outros</option>
+        </select><br><br>
 
-    <label>Funções disponíveis:</label><br>
-    <?php
-    // Busca habilidades e sub-habilidades
-    $stmt = $pdo->query("SELECT h.habilidadeid, h.nome as hab_nome, s.subid, s.nome as sub_nome 
-                         FROM habilidades h 
-                         LEFT JOIN subhabilidade s ON h.habilidadeid = s.habilidadeid
-                         ORDER BY h.habilidadeid, s.subid");
-    $currentHab = '';
-    while($row = $stmt->fetch()) {
-        if ($currentHab !== $row['hab_nome']) {
-            echo "<strong>{$row['hab_nome']}</strong><br>";
-            $currentHab = $row['hab_nome'];
+        <label>Funções disponíveis:</label><br>
+        <?php
+        // Busca habilidades e sub-habilidades
+        $stmt = $pdo->query("SELECT h.habilidadeid, h.nome as hab_nome, s.subid, s.nome as sub_nome 
+                             FROM habilidades h 
+                             LEFT JOIN subhabilidade s ON h.habilidadeid = s.habilidadeid
+                             ORDER BY h.habilidadeid, s.subid");
+        $currentHab = '';
+        while($row = $stmt->fetch()) {
+            if ($currentHab !== $row['hab_nome']) {
+                echo "<strong>{$row['hab_nome']}</strong><br>";
+                $currentHab = $row['hab_nome'];
+            }
+            $subid = $row['subid'] ?? 'null';
+            $label = $row['sub_nome'] ?? '';
+            echo "<input type='checkbox' name='funcoes[]' value='{$row['habilidadeid']}-$subid'> $label<br>";
         }
-        $subid = $row['subid'] ?? 'null';
-        $label = $row['sub_nome'] ?? '';
-        echo "<input type='checkbox' name='funcoes[]' value='{$row['habilidadeid']}-$subid'> $label<br>";
-    }
-    ?>
+        ?>
+        <br>
+        <button type="submit" name="evento_extraordinario">Criar Evento Extraordinário</button>
+    </form>
+
+    <!-- Botão Atividade Dominical -->
+    <h3 style="color:#003366;">Evento Padrão: Atividade Dominical</h3>
+    <form method="POST">
+        <label>Data do evento:</label><br>
+        <input type="date" name="data_padrao" required><br><br>
+        <button type="submit" name="atividade_dominical">Criar Atividade Dominical</button>
+    </form>
+
     <br>
-    <button type="submit" name="evento_extraordinario">Criar Evento Extraordinário</button>
-</form>
-
-<!-- Botão Atividade Dominical -->
-<h3>Evento Padrão: Atividade Dominical</h3>
-<form method="POST">
-    <label>Data do evento:</label><br>
-    <input type="date" name="data_padrao" required><br><br>
-    <button type="submit" name="atividade_dominical">Criar Atividade Dominical</button>
-</form>
-
-<br>
-<a href="index.php">Voltar ao Dashboard</a>
+    <a href="index.php" class="btn-nav">Voltar ao Dashboard</a>
+</div>
 </body>
 </html>

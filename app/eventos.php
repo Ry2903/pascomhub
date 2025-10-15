@@ -33,63 +33,67 @@ $eventos = $pdo->query("SELECT * FROM eventos ORDER BY data ASC, horario ASC")->
 <head>
     <meta charset="UTF-8">
     <title>Eventos - PascomHub</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-<h2>Escalas / Eventos</h2>
-<?php if($msg) echo "<p style='color:green'>$msg</p>"; ?>
+<div style="max-width:900px;margin:30px auto;padding:20px;background-color:#fff;border-radius:15px;box-shadow:0 0 20px rgba(0,0,0,0.2);">
 
-<nav>
-    <a href="index.php">Dashboard</a> |
-    <a href="perfil.php">Perfil</a> |
-    <a href="logout.php">Sair</a>
-</nav>
+    <h2 style="text-align:center;color:#FFD700;">Escalas / Eventos</h2>
+    <?php if($msg) echo "<p style='color:green;text-align:center;'>$msg</p>"; ?>
 
-<?php foreach($eventos as $evento): ?>
-    <hr>
-    <h3><?php echo $evento['descricao'] ?? 'Sem descrição'; ?></h3>
-    <p>Data: <?php echo date('d/m/Y', strtotime($evento['data'])); ?> | Horário: <?php echo $evento['horario']; ?></p>
+    <nav style="text-align:center;margin-bottom:25px;">
+        <a href="index.php" class="btn-nav">Dashboard</a>
+        <a href="perfil.php" class="btn-nav">Perfil</a>
+        <a href="logout.php" class="btn-nav">Sair</a>
+    </nav>
 
-    <?php
-    $stmt = $pdo->prepare("
-        SELECT f.funcaoid, h.nome AS habilidade, s.nome AS subhabilidade, u.nome AS responsavel, f.status
-        FROM funcoesevento f
-        INNER JOIN habilidades h ON f.habilidadeid = h.habilidadeid
-        LEFT JOIN subhabilidade s ON f.subid = s.subid
-        LEFT JOIN usuarios u ON f.idresponsavel = u.userid
-        WHERE f.eventoid = ?
-    ");
-    $stmt->execute([$evento['eventoid']]);
-    $funcoes = $stmt->fetchAll();
-    ?>
+    <?php foreach($eventos as $evento): ?>
+        <hr style="border-color:#003366;">
+        <h3 style="color:#003366;"><?= htmlspecialchars($evento['descricao'] ?? 'Sem descrição'); ?></h3>
+        <p>Data: <?= date('d/m/Y', strtotime($evento['data'])); ?> | Horário: <?= $evento['horario']; ?></p>
 
-    <table border="1" cellpadding="5" cellspacing="0">
-        <thead>
-            <tr>
-                <th>Habilidade</th>
-                <th>Sub-Habilidade</th>
-                <th>Responsável</th>
-                <th>Status</th>
-                <th>Ação</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach($funcoes as $f): ?>
+        <?php
+        $stmt = $pdo->prepare("
+            SELECT f.funcaoid, h.nome AS habilidade, s.nome AS subhabilidade, u.nome AS responsavel, f.status
+            FROM funcoesevento f
+            INNER JOIN habilidades h ON f.habilidadeid = h.habilidadeid
+            LEFT JOIN subhabilidade s ON f.subid = s.subid
+            LEFT JOIN usuarios u ON f.idresponsavel = u.userid
+            WHERE f.eventoid = ?
+        ");
+        $stmt->execute([$evento['eventoid']]);
+        $funcoes = $stmt->fetchAll();
+        ?>
+
+        <table border="1" cellpadding="8" cellspacing="0" style="width:100%;border-collapse:collapse;">
+            <thead style="background-color:#003366;color:#FFD700;">
                 <tr>
-                    <td><?php echo $f['habilidade']; ?></td>
-                    <td><?php echo $f['subhabilidade'] ?? '-'; ?></td>
-                    <td><?php echo $f['responsavel'] ?? '-'; ?></td>
-                    <td><?php echo $f['status']; ?></td>
-                    <td>
-                        <?php if($f['status'] === 'Livre'): ?>
-                            <a href="?reserva=<?php echo $f['funcaoid']; ?>">Reservar</a>
-                        <?php else: ?>
-                            -
-                        <?php endif; ?>
-                    </td>
+                    <th>Habilidade</th>
+                    <th>Sub-Habilidade</th>
+                    <th>Responsável</th>
+                    <th>Status</th>
+                    <th>Ação</th>
                 </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-<?php endforeach; ?>
+            </thead>
+            <tbody>
+                <?php foreach($funcoes as $f): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($f['habilidade']); ?></td>
+                        <td><?= htmlspecialchars($f['subhabilidade'] ?? '-'); ?></td>
+                        <td><?= htmlspecialchars($f['responsavel'] ?? '-'); ?></td>
+                        <td><?= htmlspecialchars($f['status']); ?></td>
+                        <td>
+                            <?php if($f['status'] === 'Livre'): ?>
+                                <a href="?reserva=<?= $f['funcaoid']; ?>" class="btn-reserva">Reservar</a>
+                            <?php else: ?>
+                                -
+                            <?php endif; ?>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php endforeach; ?>
+</div>
 </body>
 </html>

@@ -28,19 +28,26 @@ $habilidades = $stmt2->fetchAll();
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <h2>Perfil de <?php echo $usuario['nome']; ?></h2>
-    <p>Email: <?php echo $usuario['email']; ?></p>
-    <p>Tipo: <?php echo $usuario['tipo']; ?></p>
+<div style="max-width:700px;margin:40px auto;padding:25px;background-color:#fff;border-radius:15px;box-shadow:0 0 20px rgba(0,0,0,0.2);">
 
-    <h3>Habilidades</h3>
+    <h2 style="text-align:center;color:#FFD700;">Perfil de <?php echo htmlspecialchars($usuario['nome']); ?></h2>
+    
+    <p><strong>Email:</strong> <?php echo htmlspecialchars($usuario['email']); ?></p>
+    <p><strong>Tipo:</strong> <?php echo htmlspecialchars($usuario['tipo']); ?></p>
+
+    <h3 style="color:#003366;">Habilidades</h3>
     <ul>
         <?php
         foreach($habilidades as $h) {
-            echo "<li>{$h['habilidade']} - {$h['subhabil']}</li>";
+            echo "<li>{$h['habilidade']}" . ($h['subhabil'] ? " - {$h['subhabil']}" : "") . "</li>";
         }
         ?>
     </ul>
 
-    <p><a href="index.php">Voltar ao Dashboard</a></p>
+    <div style="text-align:center;margin-top:20px;">
+        <a href="index.php" class="btn-nav">Voltar ao Dashboard</a>
+    </div>
+
+</div>
 </body>
 </html>

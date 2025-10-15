@@ -1,0 +1,270 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #F8F8F2; /* off white */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Containers */
+.container-login,
+.container-cadastro {
+    background-color: #0B1F3F; /* azul escuro */
+    padding: 40px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 900px;
+    color: #F8F8F2;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.container-login h1,
+.container-cadastro h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #D4AF37; /* dourado */
+}
+
+/* Form wrapper (apenas cadastro) */
+.form-wrapper {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.form-left, .form-right {
+    flex: 1;
+    min-width: 250px;
+}
+
+/* Labels e inputs */
+form label {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #D4AF37;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+    background-color: #b5942e;
+}
+
+p {
+    text-align: center;
+    margin-top: 15px;
+}
+
+p a {
+    color: #D4AF37;
+    text-decoration: none;
+}
+
+/* Senha olho */
+.senha-container {
+    display: flex;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.senha-container input {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.btn-olho {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #D4AF37;
+    font-size: 18px;
+}
+
+/* Habilidades e sub-habilidades (cadastro) */
+.habilidade-item {
+    margin-top: 15px;
+}
+
+.habilidade-titulo {
+    font-weight: bold;
+    color: #D4AF37;
+    margin-bottom: 5px;
+}
+
+.subhabilidades label {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.subhabilidades input[type="checkbox"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 5px;
+    border: 2px solid #D4AF37;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.subhabilidades input[type="checkbox"]:checked {
+    background-color: #D4AF37;
+    border-color: #D4AF37;
+}
+
+.subhabilidades input[type="checkbox"]:checked::after {
+    content: "✔";
+    color: #0B1F3F;
+    position: absolute;
+    top: 0px;
+    left: 3px;
+    font-size: 14px;
+}
+
+.container-dashboard {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #0B1F3F;
+    color: #F8F8F2;
+    border-radius: 15px;
+}
+
+.evento-card {
+    background-color: #142A5C;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.evento-card h3 {
+    color: #D4AF37;
+}
+
+.funcoesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.funcoesContainer button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-assumir {
+    background-color: #D4AF37;
+    color: #0B1F3F;
+}
+
+.btn-assumir:hover {
+    background-color: #b5942e;
+}
+
+.btn-livre {
+    background-color: #D4AF37;
+    color: #0B1F3F;
+}
+
+.btn-ocupado {
+    background-color: #888;
+    color: #fff;
+    cursor: default;
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+}
+.tab {
+    flex: 1;
+    padding: 12px;
+    text-align: center;
+    background-color: #142A5C;
+    color: #D4AF37;
+    cursor: pointer;
+    border-radius: 10px 10px 0 0;
+}
+.tab.active {
+    background-color: #D4AF37;
+    color: #0B1F3F;
+}
+.tab-content {
+    display: none;
+    background-color: #0B1F3F;
+    padding: 20px;
+    border-radius: 0 10px 10px 10px;
+    color: #F8F8F2;
+}
+.tab-content.active {
+    display: block;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+}
+button {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background-color: #D4AF37;
+    color: #0B1F3F;
+}
+.funcoes-missa {
+    margin-bottom: 15px;
+}
+
+/* Responsividade */
+@media (max-width: 768px){
+    .form-wrapper {
+        flex-direction: column;
+    }
+    .senha-container input {
+        padding-right: 35px;
+    }
+}

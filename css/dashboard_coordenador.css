@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F5F5F5; /* off-white */
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background-color: #001F3F; /* azul escuro */
+    padding: 20px;
+    border-radius: 15px;
+    color: #fff;
+}
+
+h1, h3 {
+    color: #d4af37; /* dourado */
+    margin-bottom: 15px;
+}
+
+input, textarea, button {
+    margin: 10px 0;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+}
+
+input, textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button.btn {
+    background-color: #d4af37;
+    color: #001F3F;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    transition: 0.2s;
+}
+
+button.btn:hover {
+    opacity: 0.9;
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+    gap: 5px;
+}
+
+.tab {
+    flex: 1;
+    padding: 10px;
+    background-color: #d4af37;
+    color: #001F3F;
+    border-radius: 8px 8px 0 0;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tab.active {
+    background-color: #001F3F;
+    color: #d4af37;
+}
+
+/* Containers das abas */
+.tab-content {
+    display: none;
+    padding: 20px;
+    background-color: #001F3F;
+    border-radius: 0 0 15px 15px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Checkbox personalizado */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.checkbox-container input[type="checkbox"] {
+    accent-color: #d4af37;
+    margin-right: 8px;
+    width: 18px;
+    height: 18px;
+}
+
+.qtdMembros {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 3px 5px;
+    font-size: 14px;
+    margin-left: 10px;
+    width: 80px;
+}
+
+/* Inputs de data/hora */
+input[type="date"], input[type="time"] {
+    border-radius: 8px;
+    padding: 6px;
+}

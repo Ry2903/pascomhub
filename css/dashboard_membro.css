@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F5F5F5; /* off-white */
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background-color: #001F3F; /* azul escuro */
+    padding: 20px;
+    border-radius: 15px;
+    color: #fff;
+}
+
+h1, h3 {
+    color: #d4af37; /* dourado */
+}
+
+.headerButtons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+button.btn {
+    background-color: #d4af37;
+    color: #001F3F;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+}
+
+button.btn:hover {
+    opacity: 0.9;
+}
+
+.eventoCard {
+    background-color: #002A5C; /* azul mais claro */
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.eventoCard h4 {
+    color: #d4af37;
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.eventoCard p {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.categoria {
+    margin-top: 10px;
+    font-weight: bold;
+    text-decoration: underline;
+    color: #d4af37;
+}
+
+.subFunc {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.subFunc button {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+/* Botões com cores diferentes */
+.subFunc button.livre {
+    background-color: #d4af37; /* dourado */
+    color: #001F3F;
+}
+
+.subFunc button.ocupado {
+    background-color: #555; /* cinza escuro */
+    color: #fff;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.subFunc button.assumido {
+    background-color: #FF8C00; /* laranja */
+    color: #fff;
+}
+
+.subFunc button:hover:not(.ocupado) {
+    opacity: 0.9;
+}
+
+/* ... CSS anterior permanece ... */
+
+.eventoHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.toggleIcon {
+    font-size: 0.9em;
+    color: #d4af37;
+    margin-left: 10px;
+}
+
+
+@media screen and (max-width: 600px) {
+    .eventoCard {
+        padding: 10px;
+    }
+    .subFunc {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .subFunc button {
+        width: 100%;
+    }
+}

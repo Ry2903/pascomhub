@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PascomHub - Cadastro</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container-cadastro">
+    <h1>Cadastro PascomHub</h1>
+    <form id="cadastroForm">
+        <div class="form-wrapper">
+            <!-- Esquerda: dados pessoais -->
+            <div class="form-left">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" required>
+
+                <label for="email">E-mail</label>
+                <input type="email" id="email" required>
+
+                <label for="senha">Senha</label>
+                <div class="senha-container">
+                    <input type="password" id="senha" required>
+                    <button type="button" id="toggleSenhaCadastro" class="btn-olho">
+                        <span class="olho-icon">&#128065;</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Direita: habilidades -->
+            <div class="form-right">
+                <label>Habilidades</label>
+                <div class="habilidades">
+                    <div class="habilidade-item">
+                        <div class="habilidade-titulo">Mídias Sociais</div>
+                        <div class="subhabilidades">
+                            <label><input type="checkbox" value="Post Fotos e Homilia"> Post Fotos e Homilia</label>
+                        </div>
+                    </div>
+
+                    <div class="habilidade-item">
+                        <div class="habilidade-titulo">Slides</div>
+                    </div>
+
+                    <div class="habilidade-item">
+                        <div class="habilidade-titulo">Fotografia</div>
+                        <div class="subhabilidades">
+                            <label><input type="checkbox" value="Fotos Profissionais"> Fotos Profissionais</label>
+                            <label><input type="checkbox" value="Fotos com celular"> Fotos com celular</label>
+                        </div>
+                    </div>
+
+                    <div class="habilidade-item">
+                        <div class="habilidade-titulo">Transmissão</div>
+                        <div class="subhabilidades">
+                            <label><input type="checkbox" value="Câmera Móvel"> Câmera Móvel</label>
+                            <label><input type="checkbox" value="Câmera Central"> Câmera Central</label>
+                            <label><input type="checkbox" value="OBS"> OBS</label>
+                            <label><input type="checkbox" value="Feedbacks"> Feedbacks</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+    <p>Já tem conta? <a href="index.html">Faça login</a></p>
+</div>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+<!-- Inicialização do Firebase -->
+<script src="js/firebase.js"></script> <!-- Este cria auth e db -->
+
+<!-- Seu JS -->
+<script src="js/main.js"></script> <!-- Usa auth e db -->
+</body>
+</html>

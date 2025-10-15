@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PascomHub - Dashboard Coordenador</title>
+<link rel="stylesheet" href="css/dashboard_coordenador.css">
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+<script src="js/firebase.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Dashboard Coordenador</h1>
+    <button id="logoutBtn" class="btn">Logout</button>
+    
+    <div class="tabs">
+        <button class="tab active" data-tab="tabPersonalizado">Criar Evento Personalizado</button>
+        <button class="tab" data-tab="tabMissa">Criar Missa</button>
+    </div>
+
+    <div class="tab-content active" id="tabPersonalizado">
+        <form id="formPersonalizado">
+            <input type="text" id="nomeEvento" placeholder="Nome do Evento" required>
+            <input type="date" id="dataEvento" required>
+            <input type="time" id="horaEvento" required>
+            <textarea id="descricaoEvento" placeholder="Descrição do Evento"></textarea>
+            
+            <h3>Funções/Sub-habilidades</h3>
+            <div id="funcoesContainer"></div>
+
+            <button type="submit" class="btn">Criar Evento</button>
+        </form>
+    </div>
+
+    <div class="tab-content" id="tabMissa">
+    <form id="formMissa">
+        <label for="dataMissa" style="color:#d4af37;">Selecione a data da Missa:</label>
+        <input type="date" id="dataMissa" required>
+        <button type="submit" class="btn">Criar Missa Padrão</button>
+    </form>
+    </div>
+</div>
+
+<script src="js/dashboard_coordenador.js"></script>
+</body>
+</html>

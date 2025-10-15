@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PascomHub - Login</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container-login">
+    <h1>PascomHub</h1>
+    <form id="loginForm">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" required>
+
+        <label for="senha">Senha</label>
+        <div class="senha-container">
+            <input type="password" id="senhaLogin" required>
+            <button type="button" id="toggleSenhaLogin" class="btn-olho">
+                <span class="olho-icon">&#128065;</span>
+            </button>
+        </div>
+
+        <button type="submit">Entrar</button>
+    </form>
+    <p>Não tem conta? <a href="cadastro.html">Cadastre-se</a></p>
+</div>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+<!-- Inicialização do Firebase -->
+<script src="js/firebase.js"></script> <!-- Este cria auth e db -->
+
+<!-- Seu JS -->
+<script src="js/main.js"></script> <!-- Usa auth e db -->
+</body>
+</html>

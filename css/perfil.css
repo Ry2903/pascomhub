@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F5F5F5; /* off-white */
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background-color: #001F3F; /* azul escuro */
+    padding: 20px;
+    border-radius: 15px;
+    color: #fff;
+}
+
+h1 {
+    color: #d4af37; /* dourado */
+    text-align: center;
+}
+
+button.btn {
+    background-color: #d4af37;
+    color: #001F3F;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 10px;
+}
+
+button.btn:hover {
+    opacity: 0.9;
+}
+
+.perfilHabilidade {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.perfilHabilidade input[type="checkbox"] {
+    accent-color: #d4af37;
+    margin-right: 8px;
+    width: 18px;
+    height: 18px;
+}
+
+#saudacao {
+    margin-bottom: 15px;
+}

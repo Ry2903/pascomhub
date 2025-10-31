@@ -33,8 +33,8 @@ body {
 }
 
 .logo-circle {
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     background-color: #FDC631;
     border-radius: 50%;
     display: flex;
@@ -42,6 +42,11 @@ body {
     justify-content: center;
     font-size: 24px;
     color: #093364;
+}
+
+.logo-img {
+    width: 35px;
+    height: 35px;
 }
 
 .logo-text {

@@ -100,14 +100,14 @@ body {
     background: white;
     border-radius: 16px;
     padding: 24px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 12px #09336414;
     border: 2px solid #e5e5e5;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .evento-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 20px #0933641f;
 }
 
 .evento-card h3 {
@@ -124,7 +124,7 @@ body {
 }
 
 .evento-info strong {
-    color: #093364;
+    color: #000814;
 }
 
 .btn-editar {
@@ -135,7 +135,7 @@ body {
     border-radius: 8px;
     color: #093364;
     font-weight: 600;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     cursor: pointer;
     margin-top: 16px;
     transition: background-color 0.3s;

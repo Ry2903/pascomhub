@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Se estiver na página de login ou cadastro, redireciona para dashboard
             if (window.location.pathname.includes('login.html') || 
                 window.location.pathname.includes('cadastro.html')) {
-                window.location.href = 'dashboardCoordenador.html';
+                window.location.href = 'dashboard.html';
             }
         }
     });
@@ -69,7 +69,7 @@ if (loginForm) {
                 if (email === 'coord@pascompdes.com') {
                     window.location.href = 'dashboardCoordenador.html';
                 } else {
-                    window.location.href = 'dashboardCoordenador.html';
+                    window.location.href = 'dashboard.html';
                 }
             } else {
                 alert(resultado.erro);

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | PascomHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card card-large">
+            <h1 class="logo">PascomHub</h1>
+            
+            <form id="cadastroForm" class="form">
+                <!-- Campos básicos -->
+                <input 
+                    type="text" 
+                    id="nome" 
+                    placeholder="Nome" 
+                    required
+                    class="input"
+                >
+                
+                <input 
+                    type="email" 
+                    id="email" 
+                    placeholder="E-mail" 
+                    required
+                    class="input"
+                >
+                
+                <input 
+                    type="password" 
+                    id="senha" 
+                    placeholder="Senha" 
+                    required
+                    class="input"
+                >
+                <h2 class="subtitle">Suas habilidades</h2>
+                <!-- Grade de habilidades -->
+                <div class="habilidades-grid">
+                    <!-- Mídias Sociais -->
+                    <div class="habilidade-section">
+                        <h3 class="section-title">Mídias Sociais</h3>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="habilidade" value="instagram">
+                            <span>Postagens</span>
+                        </label>
+                    </div>
+
+                    <!-- Transmissão Ao-vivo -->
+                    <div class="habilidade-section">
+                        <h3 class="section-title">Transmissão Ao-vivo</h3>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="habilidade" value="camera-profissional">
+                            <span>Câmera Profissional</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="habilidade" value="camera-movel">
+                            <span>Câmera Móvel</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="habilidade" value="operador-obs">
+                            <span>Operador OBS</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="habilidade" value="interacao-publico">
+                            <span>Interação com o público</span>
+                        </label>
+                    </div>
+
+                    <!-- Fotografia -->
+                    <div class="habilidade-section">
+                        <h3 class="section-title">Fotografia</h3>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="habilidade" value="fotos-profissionais">
+                            <span>Fotografias Profissionais</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="habilidade" value="fotos-celular">
+                            <span>Fotografias com Celular</span>
+                        </label>
+                    </div>
+
+                    <!-- Slides -->
+                    <div class="habilidade-section">
+                        <h3 class="section-title">Slides <span class="subtitle-small">(Selecione o horário de sua preferência)</span></h3>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="habilidade" value="slides-07h30">
+                            <span>07h30</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="habilidade" value="slides-09h30">
+                            <span>09h30</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="habilidade" value="slides-19h">
+                            <span>19h</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Botões -->
+                <div class="buttons">
+                    <button type="submit" class="btn btn-primary">Criar Conta</button>
+                    <a href="login.html" class="btn btn-secondary">Faça Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="../js/script.js"></script>
+</body>
+</html>

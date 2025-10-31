@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Coordenador | PascomHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/dashboardCoordenador.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="logo-container">
+                <div class="logo-circle">●</div>
+                <span class="logo-text">PascomHub</span>
+            </div>
+            <div class="navbar-buttons">
+                <button class="nav-btn" id="btnPainelControle">Painel de Controle</button>
+                <button class="nav-btn" id="btnSair">Sair</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Container Principal -->
+    <div class="main-container">
+        <h1 class="page-title">Olá, Coordenador! Veja os Eventos Disponíveis:</h1>
+
+        <!-- Grid de Eventos -->
+        <div class="eventos-grid" id="eventosGrid">
+            <!-- Cards serão inseridos dinamicamente aqui -->
+        </div>
+
+        <!-- Botão Adicionar Evento -->
+        <button class="btn-add-evento" id="btnAdicionarEvento">
+            <span class="icon-plus">+</span>
+        </button>
+    </div>
+
+    <!-- Modal: Selecionar Tipo de Evento -->
+    <div class="modal" id="modalTipoEvento">
+        <div class="modal-content modal-selecao">
+            <button class="modal-close" id="closeModalTipo">&times;</button>
+            <h2 class="modal-title">Selecione o Tipo de Evento</h2>
+            
+            <div class="tipo-evento-grid">
+                <button class="tipo-evento-card" id="btnMissaDominical">
+                    <div class="icon-igreja">⛪</div>
+                    <h3>Missa Dominical</h3>
+                    <p>Cria um evento padrão com funções pré-definidas para missa</p>
+                </button>
+                
+                <button class="tipo-evento-card" id="btnEventoPersonalizado">
+                    <div class="icon-calendario">📅</div>
+                    <h3>Evento Personalizado</h3>
+                    <p>Crie um evento único e escolha as funções necessárias</p>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Criar Evento Personalizado -->
+    <div class="modal" id="modalCriarEvento">
+        <div class="modal-content modal-form">
+            <button class="modal-close" id="closeModalEvento">&times;</button>
+            <h2 class="modal-title">Criar Evento</h2>
+            
+            <form id="formCriarEvento" class="evento-form">
+                <input type="text" id="nomeEvento" placeholder="Nome do Evento" required class="input-field">
+                <textarea id="descricaoEvento" placeholder="Breve descrição do evento" rows="3" required class="input-field"></textarea>
+                <input type="date" id="dataEvento" required class="input-field">
+                <input type="time" id="horarioEvento" required class="input-field">
+
+                <h3 class="section-subtitle">Habilidades Necessárias</h3>
+                
+                <div class="habilidades-container">
+                    <!-- Mídias Sociais -->
+                    <div class="habilidade-group">
+                        <h4 class="habilidade-title">Mídias Sociais</h4>
+                        <label class="habilidade-item">
+                            <input type="checkbox" name="funcao" value="midias-sociais-postagens">
+                            <span>Postagens</span>
+                            <input type="number" min="1" max="10" value="1" class="vagas-input" data-funcao="midias-sociais-postagens">
+                        </label>
+                    </div>
+
+                    <!-- Transmissão Ao-vivo -->
+                    <div class="habilidade-group">
+                        <h4 class="habilidade-title">Transmissão Ao-vivo</h4>
+                        <label class="habilidade-item">
+                            <input type="checkbox" name="funcao" value="transmissao-camera-central">
+                            <span>Câmera Central</span>
+                            <input type="number" min="1" max="10" value="1" class="vagas-input" data-funcao="transmissao-camera-central">
+                        </label>
+                        <label class="habilidade-item">
+                            <input type="checkbox" name="funcao" value="transmissao-camera-movel">
+                            <span>Câmera Móvel</span>
+                            <input type="number" min="1" max="10" value="1" class="vagas-input" data-funcao="transmissao-camera-movel">
+                        </label>
+                        <label class="habilidade-item">
+                            <input type="checkbox" name="funcao" value="transmissao-operador-obs">
+                            <span>Operador OBS</span>
+                            <input type="number" min="1" max="10" value="1" class="vagas-input" data-funcao="transmissao-operador-obs">
+                        </label>
+                        <label class="habilidade-item">
+                            <input type="checkbox" name="funcao" value="transmissao-interacao-publico">
+                            <span>Interação com o público</span>
+                            <input type="number" min="1" max="10" value="1" class="vagas-input" data-funcao="transmissao-interacao-publico">
+                        </label>
+                    </div>
+
+                    <!-- Fotografia -->
+                    <div class="habilidade-group">
+                        <h4 class="habilidade-title">Fotografia</h4>
+                        <label class="habilidade-item">
+                            <input type="checkbox" name="funcao" value="fotografia-profissional">
+                            <span>Fotografias Profissionais</span>
+                            <input type="number" min="1" max="10" value="1" class="vagas-input" data-funcao="fotografia-profissional">
+                        </label>
+                        <label class="habilidade-item">
+                            <input type="checkbox" name="funcao" value="fotografia-celular">
+                            <span>Fotografias com Celular</span>
+                            <input type="number" min="1" max="10" value="1" class="vagas-input" data-funcao="fotografia-celular">
+                        </label>
+                    </div>
+
+                    <!-- Slides -->
+                    <div class="habilidade-group">
+                        <h4 class="habilidade-title">Slides</h4>
+                        <label class="habilidade-item">
+                            <input type="checkbox" name="funcao" value="slides-07h30">
+                            <span>07h30</span>
+                            <input type="number" min="1" max="10" value="1" class="vagas-input" data-funcao="slides-07h30">
+                        </label>
+                        <label class="habilidade-item">
+                            <input type="checkbox" name="funcao" value="slides-10h">
+                            <span>10h</span>
+                            <input type="number" min="1" max="10" value="1" class="vagas-input" data-funcao="slides-10h">
+                        </label>
+                        <label class="habilidade-item">
+                            <input type="checkbox" name="funcao" value="slides-19h">
+                            <span>19h</span>
+                            <input type="number" min="1" max="10" value="1" class="vagas-input" data-funcao="slides-19h">
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">Tudo Certo! Quero criar o Evento.</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal: Criar Missa Dominical -->
+    <div class="modal" id="modalCriarMissa">
+        <div class="modal-content modal-form modal-missa">
+            <button class="modal-close" id="closeModalMissa">&times;</button>
+            
+            <div class="missa-content">
+                <div class="missa-icon">⛪</div>
+                <h2 class="modal-title">Missa Dominical</h2>
+                
+                <form id="formCriarMissa" class="missa-form">
+                    <input type="date" id="dataMissa" required class="input-field input-large">
+                    <input type="time" id="horarioMissa" required class="input-field input-large">
+                    
+                    <button type="submit" class="btn-submit">Tudo Certo! Quero criar a Missa.</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Painel de Controle (Membros) -->
+    <div class="modal" id="modalPainelControle">
+        <div class="modal-content modal-painel">
+            <button class="modal-close" id="closeModalPainel">&times;</button>
+            <h2 class="modal-title">Membros Atuais</h2>
+            
+            <div class="membros-grid" id="membrosGrid">
+                <!-- Cards de membros serão inseridos aqui -->
+            </div>
+
+            <button class="btn-add-membro" id="btnAdicionarMembro">
+                <span class="icon-plus">+</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal: Ver/Editar Membro -->
+    <div class="modal" id="modalVerMembro">
+        <div class="modal-content modal-form">
+            <button class="modal-close" id="closeModalVerMembro">&times;</button>
+            <h2 class="modal-title" id="tituloModalMembro">Nome do Membro</h2>
+            
+            <div class="membro-detalhes" id="membroDetalhes">
+                <!-- Detalhes do membro -->
+            </div>
+            
+            <button class="btn-submit" id="btnSalvarAlteracoes">Salvar Alterações</button>
+        </div>
+    </div>
+
+    <!-- Modal: Adicionar Novo Membro -->
+    <div class="modal" id="modalAdicionarMembro">
+        <div class="modal-content modal-form">
+            <button class="modal-close" id="closeModalAddMembro">&times;</button>
+            <h2 class="modal-title">Novo Membro</h2>
+            
+            <form id="formAdicionarMembro" class="membro-form">
+                <input type="text" id="novoMembroNome" placeholder="Nome" required class="input-field">
+                <input type="email" id="novoMembroEmail" placeholder="E-mail" required class="input-field">
+                <input type="password" id="novoMembroSenha" placeholder="Senha" required class="input-field">
+                
+                <h3 class="section-subtitle">Suas habilidades</h3>
+                
+                <div class="habilidades-container">
+                    <!-- Mesma estrutura de habilidades do cadastro -->
+                    <div class="habilidade-group">
+                        <h4 class="habilidade-title">Mídias Sociais</h4>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="novoMembroHabilidade" value="instagram">
+                            <span>Instagram</span>
+                        </label>
+                    </div>
+
+                    <div class="habilidade-group">
+                        <h4 class="habilidade-title">Transmissão Ao-vivo</h4>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="novoMembroHabilidade" value="camera-profissional">
+                            <span>Câmera Profissional</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="novoMembroHabilidade" value="camera-movel">
+                            <span>Câmera Móvel</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="novoMembroHabilidade" value="operador-obs">
+                            <span>Operador OBS</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="novoMembroHabilidade" value="interacao-publico">
+                            <span>Interação com o público</span>
+                        </label>
+                    </div>
+
+                    <div class="habilidade-group">
+                        <h4 class="habilidade-title">Fotografia</h4>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="novoMembroHabilidade" value="fotos-profissionais">
+                            <span>Fotografias Profissionais</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="novoMembroHabilidade" value="fotos-celular">
+                            <span>Fotografias com Celular</span>
+                        </label>
+                    </div>
+
+                    <div class="habilidade-group">
+                        <h4 class="habilidade-title">Slides</h4>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="novoMembroHabilidade" value="slides-07h30">
+                            <span>07h30</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="novoMembroHabilidade" value="slides-10h">
+                            <span>10h</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="novoMembroHabilidade" value="slides-19h">
+                            <span>19h</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-submit">Adicionar Membro</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="../js/dashboardCoordenador.js"></script>
+</body>
+</html>

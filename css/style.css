@@ -1,0 +1,253 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #F8F9FA;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0px 5px #0933647e;
+    padding: 48px;
+    width: 100%;
+    border: 1px solid #e5e5e5;
+}
+
+.card-large {
+    max-width: 800px;
+}
+
+.logo {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #093364;
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.subtitle {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #093364;
+    text-align: center;
+}
+
+.subtitle-small {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: #666;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #FDC631;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    color: #000814;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input:focus {
+    border-color: #e5b42c;
+}
+
+.input::placeholder {
+    color: #999;
+}
+
+.input-password-wrapper {
+    position: relative;
+}
+
+.input-password-wrapper .input {
+    padding-right: 48px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #FDC631;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s;
+}
+
+.toggle-password:hover {
+    color: #e5b42c;
+}
+
+.forgot-password {
+    text-align: right;
+    margin-top: -8px;
+}
+
+.link {
+    color: #093364;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: text-decoration 0.3s;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.buttons {
+    font-family: 'Montserrat Alternates', sans-serif;
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.btn {
+    flex: 1;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Montserrat Alternates', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #FDC631;
+    color: #093364;
+}
+
+.btn-primary:hover {
+    background-color: #e5b42c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(253, 198, 49, 0.3);
+}
+
+.btn-secondary {
+    background-color: white;
+    color: #093364;
+    border: 2px solid #d1d5db;
+}
+
+.btn-secondary:hover {
+    background-color: #f9fafb;
+    border-color: #9ca3af;
+}
+
+/* Estilos para a grade de habilidades */
+.habilidades-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 24px;
+    margin-bottom: 16px;
+}
+
+.habilidade-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.section-title {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #093364;
+    margin-bottom: 4px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: #000814;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #FDC631;
+}
+
+.checkbox-label span {
+    user-select: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .card {
+        padding: 32px 24px;
+    }
+
+    .logo {
+        font-size: 2rem;
+        margin-bottom: 32px;
+    }
+
+    .habilidades-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 12px;
+    }
+
+    .card {
+        padding: 24px 20px;
+    }
+
+    .logo {
+        font-size: 1.75rem;
+    }
+
+    .subtitle {
+        font-size: 1.125rem;
+    }
+}

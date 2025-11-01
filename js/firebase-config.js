@@ -18,7 +18,8 @@ import {
     deleteDoc,
     query,
     where,
-    orderBy 
+    orderBy,
+    Timestamp
 } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
 
 // Configuração do Firebase
@@ -40,27 +41,40 @@ const db = getFirestore(app);
 // FUNÇÕES DE AUTENTICAÇÃO
 // ========================================
 
-// Função para criar novo usuário
+// Função para criar novo usuário   
 export async function cadastrarUsuario(email, senha, nome, habilidades) {
     try {
+        console.log("🚀 Iniciando cadastro...");
+        console.log("Email:", email);
+        console.log("Nome:", nome);
+        console.log("Habilidades:", habilidades);
+        
         // Cria o usuário no Firebase Auth
+        console.log("📝 Criando usuário no Authentication...");
         const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
         const user = userCredential.user;
+        console.log("✅ Usuário criado no Auth:", user.uid);
         
         // Salva os dados complementares no Firestore
-        await setDoc(doc(db, "usuarios", user.uid), {
+        console.log("💾 Salvando dados no Firestore...");
+        const dadosUsuario = {
             nome: nome,
             email: email,
             habilidades: habilidades,
-            isCoordenador: false, // Por padrão não é coordenador
+            isCoordenador: false,
             criadoEm: new Date().toISOString()
-        });
+        };
+        console.log("Dados a salvar:", dadosUsuario);
         
-        console.log("Usuário cadastrado com sucesso:", user.uid);
+        await setDoc(doc(db, "usuarios", user.uid), dadosUsuario);
+        console.log("✅ Dados salvos no Firestore!");
+        
         return { sucesso: true, userId: user.uid };
         
     } catch (error) {
-        console.error("Erro ao cadastrar:", error);
+        console.error("❌ Erro ao cadastrar:", error);
+        console.error("Código do erro:", error.code);
+        console.error("Mensagem:", error.message);
         
         // Mensagens de erro em português
         let mensagem = "Erro ao cadastrar usuário.";

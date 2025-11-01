@@ -38,7 +38,14 @@ document.addEventListener('DOMContentLoaded', function() {
             // Se estiver na página de login ou cadastro, redireciona para dashboard
             if (window.location.pathname.includes('login.html') || 
                 window.location.pathname.includes('cadastro.html')) {
-                window.location.href = '/pages/dashboard.html';
+                // Aguarda um pouco antes de redirecionar
+                setTimeout(() => {
+                    if (resultado.email === 'coord@pascompdes.com') {
+                        window.location.href = 'dashboardCoordenador.html';
+                    } else {
+                        window.location.href = 'dashboard.html';
+                    }
+                }, 300);
             }
         }
     });
@@ -65,12 +72,15 @@ if (loginForm) {
             
             if (resultado.sucesso) {
                 alert('Login realizado com sucesso!');
-                // Redireciona baseado no tipo de usuário
-                if (email === 'coord@pascompdes.com') {
-                    window.location.href = '/pages/dashboardCoordenador.html';
-                } else {
-                    window.location.href = '/pages/dashboard.html';
-                }
+                // Aguarda um pouco antes de redirecionar
+                setTimeout(() => {
+                    // Redireciona baseado no tipo de usuário
+                    if (email === 'coord@pascompdes.com') {
+                        window.location.href = 'dashboardCoordenador.html';
+                    } else {
+                        window.location.href = 'dashboard.html';
+                    }
+                }, 300);
             } else {
                 alert(resultado.erro);
                 btnEntrar.disabled = false;
@@ -121,8 +131,10 @@ if (cadastroForm) {
             
             if (resultado.sucesso) {
                 alert('Cadastro realizado com sucesso!');
-                // Redireciona para o dashboard
-                window.location.href = '/pages/dashboard.html';
+                // Aguarda um pouco antes de redirecionar para garantir que salvou no Firestore
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 500);
             } else {
                 alert(resultado.erro);
                 btnCriar.disabled = false;

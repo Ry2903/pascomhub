@@ -1,26 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard | PascomHub</title>
-    <link rel="stylesheet" href="../css/dashboardCoordenador.css">
-    <link rel="icon" href="../assets/pascom.png" type="image/x-icon">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/dashboard.css">
 </head>
 <body>
+    <!-- Navbar -->
     <nav class="navbar">
         <div class="navbar-content">
             <div class="logo-container">
-                <img class="logo-img" src="../assets/pascomWhite.png"></img>                
+                <a href="../pages/dashboard.html">
+                    <img class="logo-img" src="../assets/pascomWhite.png" alt="Logo PASCOM">
+                </a>
                 <span class="logo-text">PascomHub</span>
             </div>
             <div class="navbar-buttons">
-                <button class="nav-btn" id="btnPainelControle">Painel de Controle</button>
+                <button class="nav-btn" id="btnAtualizarHabilidades">Atualizar Habilidades</button>
                 <button class="nav-btn" id="btnSair">Sair</button>
             </div>
         </div>
     </nav>
-    <script type="module" src="../js/dashboardCoordenador.js"></script>
+
+    <!-- Container Principal -->
+    <div class="main-container">
+        <h1 class="page-title">Olá, <span id="nomeUsuario">Usuário</span>! Veja os Eventos Disponíveis:</h1>
+
+        <!-- Grid de Eventos -->
+        <div class="eventos-grid" id="eventosGrid">
+            <!-- Cards serão inseridos dinamicamente aqui -->
+        </div>
+    </div>
+
+    <!-- Modal: Ver Detalhes do Evento -->
+    <div class="modal" id="modalEvento">
+        <div class="modal-content modal-evento">
+            <button class="modal-close" id="closeModalEvento">&times;</button>
+            
+            <h2 class="modal-title" id="eventoTitulo">Missa Dominical</h2>
+            
+            <div class="evento-info-modal">
+                <p><strong>Descrição:</strong> <span id="eventoDescricao"></span></p>
+                <p><strong>Data:</strong> <span id="eventoData"></span></p>
+                <p><strong>Horário:</strong> <span id="eventoHorario"></span></p>
+            </div>
+
+            <div class="funcoes-container" id="funcoesContainer">
+                <!-- Funções serão inseridas dinamicamente -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Atualizar Habilidades -->
+    <div class="modal" id="modalAtualizarHabilidades">
+        <div class="modal-content modal-form">
+            <button class="modal-close" id="closeModalHabilidades">&times;</button>
+            <h2 class="modal-title">Suas Habilidades</h2>
+            
+            <form id="formAtualizarHabilidades">
+                <div class="habilidades-container" id="habilidadesContainer">
+                    <!-- Será preenchido dinamicamente -->
+                </div>
+                
+                <button type="submit" class="btn-submit">Salvar Alterações</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="../js/dashboard.js"></script>
 </body>
 </html>

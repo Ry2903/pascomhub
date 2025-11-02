@@ -282,6 +282,33 @@
         </div>
     </div>
 
+    <!-- Modal: Editar Evento -->
+    <div class="modal" id="modalEditarEvento">
+        <div class="modal-content modal-form">
+            <button class="modal-close" id="closeModalEditarEvento">&times;</button>
+            <h2 class="modal-title">Editar Evento</h2>
+            
+            <form id="formEditarEvento" class="evento-form">
+                <input type="hidden" id="editarEventoId">
+                
+                <input type="text" id="editarNomeEvento" placeholder="Nome do Evento" required class="input-field">
+                <textarea id="editarDescricaoEvento" placeholder="Breve descrição do evento" rows="3" required class="input-field"></textarea>
+                <input type="date" id="editarDataEvento" required class="input-field">
+                <input type="time" id="editarHorarioEvento" required class="input-field">
+
+                <h3 class="section-subtitle">Funções e Participantes</h3>
+                <div id="funcoesEditarContainer" class="funcoes-editar-container">
+                    <!-- Será preenchido dinamicamente -->
+                </div>
+
+                <div class="buttons" style="margin-top: 24px;">
+                    <button type="submit" class="btn-submit">Salvar Alterações</button>
+                    <button type="button" class="btn-excluir-evento" id="btnExcluirEvento">Excluir Evento</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script type="module" src="../js/dashboardCoordenador.js"></script>
 </body>
 </html>

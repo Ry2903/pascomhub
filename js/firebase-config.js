@@ -41,7 +41,7 @@ const db = getFirestore(app);
 // FUNÇÕES DE AUTENTICAÇÃO
 // ========================================
 
-// Função para criar novo usuário   
+// Função para criar novo usuário
 export async function cadastrarUsuario(email, senha, nome, habilidades) {
     try {
         console.log("🚀 Iniciando cadastro...");
@@ -190,6 +190,50 @@ export async function criarEvento(dadosEvento) {
     } catch (error) {
         console.error("Erro ao criar evento:", error);
         return { sucesso: false, erro: "Erro ao criar evento." };
+    }
+}
+
+// Atualizar evento
+export async function atualizarEvento(eventoId, dadosAtualizados) {
+    try {
+        const docRef = doc(db, "eventos", eventoId);
+        await updateDoc(docRef, {
+            ...dadosAtualizados,
+            atualizadoEm: new Date().toISOString()
+        });
+        
+        return { sucesso: true };
+    } catch (error) {
+        console.error("Erro ao atualizar evento:", error);
+        return { sucesso: false, erro: "Erro ao atualizar evento." };
+    }
+}
+
+// Buscar evento específico
+export async function buscarEvento(eventoId) {
+    try {
+        const docRef = doc(db, "eventos", eventoId);
+        const docSnap = await getDoc(docRef);
+        
+        if (docSnap.exists()) {
+            return { sucesso: true, evento: { id: docSnap.id, ...docSnap.data() } };
+        } else {
+            return { sucesso: false, erro: "Evento não encontrado." };
+        }
+    } catch (error) {
+        console.error("Erro ao buscar evento:", error);
+        return { sucesso: false, erro: "Erro ao buscar evento." };
+    }
+}
+
+// Deletar evento
+export async function deletarEvento(eventoId) {
+    try {
+        await deleteDoc(doc(db, "eventos", eventoId));
+        return { sucesso: true };
+    } catch (error) {
+        console.error("Erro ao deletar evento:", error);
+        return { sucesso: false, erro: "Erro ao deletar evento." };
     }
 }
 

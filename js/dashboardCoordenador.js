@@ -505,8 +505,17 @@ async function carregarMembros() {
     const membrosGrid = document.getElementById('membrosGrid');
     const resultado = await buscarTodosUsuarios();
     
+    console.log('📊 Resultado buscar todos usuários:', resultado);
+    
     if (resultado.sucesso) {
         membrosGrid.innerHTML = '';
+        
+        if (resultado.usuarios.length === 0) {
+            membrosGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #666;">Nenhum membro cadastrado ainda.</p>';
+            return;
+        }
+        
+        console.log('✅ Membros encontrados:', resultado.usuarios.length);
         
         resultado.usuarios.forEach(usuario => {
             const card = criarCardMembro(usuario);
@@ -665,10 +674,16 @@ document.getElementById('formAdicionarMembro').addEventListener('submit', async 
     btnSubmit.disabled = true;
     btnSubmit.textContent = 'Adicionando...';
     
+    console.log('🚀 Criando membro:', { nome, email, habilidades });
+    
     const resultado = await cadastrarUsuario(email, senha, nome, habilidades);
+    
+    console.log('📊 Resultado cadastro:', resultado);
     
     if (resultado.sucesso) {
         alert('Membro adicionado com sucesso!');
+        // Aguarda um pouco para garantir que salvou no Firestore
+        await new Promise(resolve => setTimeout(resolve, 1000));
         modalAdicionarMembro.classList.remove('active');
         e.target.reset();
         await carregarMembros();

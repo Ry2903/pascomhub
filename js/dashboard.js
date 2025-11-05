@@ -8,12 +8,6 @@ import {
     atualizarHabilidades
 } from './firebase-config.js';
 
-import { 
-    solicitarPermissaoNotificacao, 
-    ouvirNotificacoes,
-    iniciarVerificacaoPeriodica
-} from './notificacoes.js';
-
 let usuarioAtual = null;
 
 // ===== VERIFICAÇÃO DE AUTENTICAÇÃO =====

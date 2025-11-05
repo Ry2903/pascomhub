@@ -13,6 +13,8 @@ import {
     excluirUsuario
 } from './firebase-config.js';
 
+import { iniciarVerificacaoPeriodica } from './notificacoes.js';
+
 // ===== VERIFICAÇÃO DE AUTENTICAÇÃO =====
 verificarUsuarioLogado(async (resultado) => {
     if (!resultado.logado) {
@@ -575,7 +577,7 @@ function abrirModalVerMembro(usuario) {
     
     // Cria checkboxes editáveis para habilidades
     const habilidadesPossiveis = [
-        { value: 'postagens', label: 'Postagens', categoria: 'Mídias Sociais' },
+        { value: 'instagram', label: 'Instagram', categoria: 'Mídias Sociais' },
         { value: 'camera-profissional', label: 'Câmera Profissional', categoria: 'Transmissão Ao-vivo' },
         { value: 'camera-movel', label: 'Câmera Móvel', categoria: 'Transmissão Ao-vivo' },
         { value: 'operador-obs', label: 'Operador OBS', categoria: 'Transmissão Ao-vivo' },
@@ -583,7 +585,7 @@ function abrirModalVerMembro(usuario) {
         { value: 'fotos-profissionais', label: 'Fotografias Profissionais', categoria: 'Fotografia' },
         { value: 'fotos-celular', label: 'Fotografias com Celular', categoria: 'Fotografia' },
         { value: 'slides-07h30', label: 'Slides 07h30', categoria: 'Slides' },
-        { value: 'slides-09h30', label: 'Slides 09h30', categoria: 'Slides' },
+        { value: 'slides-10h', label: 'Slides 10h', categoria: 'Slides' },
         { value: 'slides-19h', label: 'Slides 19h', categoria: 'Slides' }
     ];
     
@@ -703,7 +705,7 @@ function formatarData(dataISO) {
 
 function traduzirHabilidade(habilidade) {
     const traducoes = {
-        'postagens': 'Postagens',
+        'instagram': 'Instagram',
         'camera-profissional': 'Câmera Profissional',
         'camera-movel': 'Câmera Móvel',
         'operador-obs': 'Operador OBS',
@@ -711,7 +713,7 @@ function traduzirHabilidade(habilidade) {
         'fotos-profissionais': 'Fotografias Profissionais',
         'fotos-celular': 'Fotografias com Celular',
         'slides-07h30': 'Slides 07h30',
-        'slides-09h30': 'Slides 09h30',
+        'slides-10h': 'Slides 10h',
         'slides-19h': 'Slides 19h'
     };
     return traducoes[habilidade] || habilidade;

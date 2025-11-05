@@ -123,6 +123,43 @@ function criarCardEvento(evento) {
     return card;
 }
 
+// ===== DESISTIR DE FUNÇÃO =====
+async function desistirFuncao(eventoId, categoria, funcao) {
+    if (!usuarioAtual) {
+        alert('Erro: dados do usuário não carregados. Recarregue a página.');
+        return;
+    }
+    
+    const confirma = confirm('Deseja realmente desistir desta função?');
+    
+    if (!confirma) return;
+    
+    const eventoResult = await buscarEvento(eventoId);
+    
+    if (!eventoResult.sucesso) {
+        alert(eventoResult.erro);
+        return;
+    }
+    
+    const evento = eventoResult.evento;
+    
+    // Remove o usuário
+    const ocupadas = evento.funcoes[categoria][funcao].ocupadas || [];
+    const novasOcupadas = ocupadas.filter(id => id !== usuarioAtual.id);
+    evento.funcoes[categoria][funcao].ocupadas = novasOcupadas;
+    
+    // Atualiza no Firebase
+    const resultado = await atualizarEvento(eventoId, { funcoes: evento.funcoes });
+    
+    if (resultado.sucesso) {
+        alert('Você desistiu da função!');
+        // Reabre o modal atualizado
+        await abrirModalEvento(evento);
+    } else {
+        alert(resultado.erro);
+    }
+}
+
 // ===== ABRIR MODAL DO EVENTO =====
 async function abrirModalEvento(evento) {
     // Verifica se o usuário está carregado
@@ -166,12 +203,14 @@ async function abrirModalEvento(evento) {
             const botaoDiv = document.createElement('div');
             
             if (usuarioJaOcupou) {
-                // Usuário já está nessa função
-                const btnOcupado = document.createElement('button');
-                btnOcupado.className = 'btn-ocupado';
-                btnOcupado.textContent = 'Você';
-                btnOcupado.disabled = true;
-                botaoDiv.appendChild(btnOcupado);
+                // Usuário já está nessa função - mostra botão de desistir
+                const btnDesistir = document.createElement('button');
+                btnDesistir.className = 'btn-desistir';
+                btnDesistir.textContent = 'Desistir';
+                btnDesistir.addEventListener('click', async () => {
+                    await desistirFuncao(evento.id, categoria, nomeFuncao);
+                });
+                botaoDiv.appendChild(btnDesistir);
             } else if (vagasDisponiveis > 0) {
                 // Tem vagas disponíveis
                 const btnOcupar = document.createElement('button');
@@ -253,8 +292,8 @@ async function ocuparFuncao(eventoId, categoria, funcao) {
     
     if (resultado.sucesso) {
         alert('Função ocupada com sucesso!');
-        modalEvento.classList.remove('active');
-        await carregarEventos();
+        // Reabre o modal atualizado
+        await abrirModalEvento(evento);
     } else {
         alert(resultado.erro);
     }

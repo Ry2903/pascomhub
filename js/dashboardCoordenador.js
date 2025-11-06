@@ -13,6 +13,8 @@ import {
     excluirUsuario
 } from './firebase-config.js';
 
+import { iniciarVerificacaoPeriodica } from './verificadorVagas.js';
+
 // ===== VERIFICAÇÃO DE AUTENTICAÇÃO =====
 verificarUsuarioLogado(async (resultado) => {
     if (!resultado.logado) {
@@ -28,6 +30,9 @@ verificarUsuarioLogado(async (resultado) => {
     
     // Carrega os eventos
     await carregarEventos();
+
+    // Inicia verificação periódica de vagas
+    iniciarVerificacaoPeriodica();
 });
 
 // ===== ELEMENTOS DO DOM =====

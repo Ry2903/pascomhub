@@ -745,3 +745,14 @@ function traduzirFuncao(funcao) {
     };
     return traducoes[funcao] || funcao;
 }
+
+// TESTE: Botão para forçar verificação
+const btnTestarNotif = document.getElementById('btnTestarNotif');
+if (btnTestarNotif) {
+    btnTestarNotif.addEventListener('click', async () => {
+        console.log('🧪 Forçando verificação de vagas...');
+        const { verificarVagasENotificar } = await import('./verificadorVagas.js');
+        await verificarVagasENotificar();
+        alert('Verificação concluída! Olhe o console e o Firestore.');
+    });
+}

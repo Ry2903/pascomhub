@@ -312,7 +312,7 @@ btnAtualizarHabilidades.addEventListener('click', async () => {
     }
     
     const habilidadesPossiveis = [
-        { value: 'instagram', label: 'Instagram', categoria: 'Mídias Sociais' },
+        { value: 'postagens', label: 'Postagens', categoria: 'Mídias Sociais' },
         { value: 'camera-profissional', label: 'Câmera Profissional', categoria: 'Transmissão Ao-vivo' },
         { value: 'camera-movel', label: 'Câmera Móvel', categoria: 'Transmissão Ao-vivo' },
         { value: 'operador-obs', label: 'Operador OBS', categoria: 'Transmissão Ao-vivo' },

@@ -1,8 +1,13 @@
 import { 
     cadastrarUsuario, 
     fazerLogin, 
-    verificarUsuarioLogado 
+    verificarUsuarioLogado,
+    auth
 } from './firebase-config.js';
+
+import {
+    sendPasswordResetEmail
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 // Função para alternar visualização de senha
 document.addEventListener('DOMContentLoaded', function() {
@@ -147,4 +152,35 @@ if (cadastroForm) {
             btnCriar.textContent = 'Criar Conta';
         }
     });
+}
+
+// ========================================
+// FUNÇÃO DE RESETAR A SENHA
+// ========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const forgotPassword = document.getElementById("forgotPassword");
+
+    if (forgotPassword) {
+        forgotPassword.addEventListener("click", (e) => {
+            e.preventDefault();
+            resetarSenha();
+        });
+    }
+});
+
+function resetarSenha() {
+    const email = document.getElementById("email").value;
+
+    if (!email) {
+        alert("Digite seu email para recuperar a senha!");
+        return;
+    }
+
+    sendPasswordResetEmail(auth, email)
+        .then(() => {
+            alert("Email enviado! Verifique sua caixa de entrada :)");
+        })
+        .catch((error) => {
+            alert("Erro: " + error.message);
+        });
 }

@@ -50,13 +50,17 @@ const eventosGrid = document.getElementById('eventosGrid');
 const modalEvento = document.getElementById('modalEvento');
 const modalAtualizarHabilidades = document.getElementById('modalAtualizarHabilidades');
 
-// ===== EVENTOS DE LOGOUT =====
+// ===== NAVEGAÇÃO =====
 btnSair.addEventListener('click', async () => {
     const confirma = confirm('Deseja realmente sair?');
     if (confirma) {
         await fazerLogout();
         window.location.href = 'login.html';
     }
+});
+
+btnArquivos.addEventListener('click', () => {
+    window.location.href = 'arquivos.html';
 });
 
 // ===== FECHAR MODALS =====

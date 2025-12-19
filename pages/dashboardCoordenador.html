@@ -6,6 +6,7 @@
     <title>Coordenador | PascomHub</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/dashboardCoordenador.css">
@@ -22,6 +23,7 @@
                 <span class="logo-text">PascomHub</span>
             </div>
             <div class="navbar-buttons">
+                <button class="nav-btn" id="btnArquivos">Arquivos</button>
                 <button class="nav-btn" id="btnPainelControle">Ver Membros</button>
                 <button class="nav-btn" id="btnSair">Sair</button>
             </div>
@@ -51,13 +53,17 @@
             
             <div class="tipo-evento-grid">
                 <button class="tipo-evento-card" id="btnMissaDominical">
-                    <div class="icon-igreja">⛪</div>
+                    <div class="icon-igreja">
+                        <i class="fa-solid fa-church"></i>
+                    </div>
                     <h3>Missa Dominical</h3>
                     <p>Cria um evento padrão com funções pré-definidas para missa</p>
                 </button>
                 
                 <button class="tipo-evento-card" id="btnEventoPersonalizado">
-                    <div class="icon-calendario">📅</div>
+                    <div class="icon-calendario">
+                        <i class="fa-solid fa-calendar"></i>
+                    </div>
                     <h3>Evento Personalizado</h3>
                     <p>Crie um evento único e escolha as funções necessárias</p>
                 </button>
@@ -162,7 +168,9 @@
             <button class="modal-close" id="closeModalMissa">&times;</button>
             
             <div class="missa-content">
-                <div class="missa-icon">⛪</div>
+                <div class="missa-icon">
+                    <i class="fa-solid fa-church"></i>
+                </div>
                 <h2 class="modal-title">Missa Dominical</h2>
                 
                 <form id="formCriarMissa" class="missa-form">

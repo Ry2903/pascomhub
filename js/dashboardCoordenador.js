@@ -45,13 +45,17 @@ const modalPainelControle = document.getElementById('modalPainelControle');
 const modalVerMembro = document.getElementById('modalVerMembro');
 const modalAdicionarMembro = document.getElementById('modalAdicionarMembro');
 
-// ===== EVENTOS DE LOGOUT =====
+// ===== NAVEGAÇÃO =====
 btnSair.addEventListener('click', async () => {
     const confirma = confirm('Deseja realmente sair?');
     if (confirma) {
         await fazerLogout();
         window.location.href = 'login.html';
     }
+});
+
+btnArquivos.addEventListener('click', () => {
+    window.location.href = 'arquivosCoordenador.html';
 });
 
 // ===== ABRIR MODAL TIPO EVENTO =====

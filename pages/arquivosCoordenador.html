@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquivos | PascomHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/arquivos.css">
+    <link rel="icon" href="../assets/pascom.png" type="image/x-icon">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="logo-container">
+                <a href="../pages/dashboardCoordenador.html">
+                    <img class="logo-img" src="../assets/pascomWhite.png"></img> 
+                </a>
+                <span class="logo-text">PascomHub</span>
+            </div>
+            <div class="navbar-buttons">
+                <button class="nav-btn" id="btnArquivos">Arquivos</button>
+                <button class="nav-btn" id="btnPainelControle">Painel de Controle</button>
+                <button class="nav-btn" id="btnSair">Sair</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Container Principal -->
+    <div class="main-container">
+        
+        <h1 class="page-title">Arquivos disponíveis</h1>
+
+        <!-- Grid de Arquivos -->
+        <div class="arquivos-grid" id="arquivosGrid">
+            <!-- Cards serão inseridos dinamicamente -->
+        </div>
+
+        <!-- Botão Adicionar Arquivo -->
+        <button class="btn-add-arquivo" id="btnAdicionarArquivo">
+            <span class="icon-plus">+</span>
+        </button>
+    </div>
+
+    <!-- Modal: Upload de Arquivo -->
+    <div class="modal" id="modalUpload">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModalUpload">&times;</button>
+            <h2 class="modal-title">Área de Upload</h2>
+            
+            <form id="formUpload" class="upload-form">
+                <input 
+                    type="text" 
+                    id="nomeExibicao" 
+                    placeholder="Nome de Exibição" 
+                    required
+                    class="input-field"
+                >
+                
+                <div class="upload-area" id="uploadArea">
+                    <svg class="upload-icon" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#FDC631" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <p class="upload-text">Arraste e solte ou clique aqui para</p>
+                    <p class="upload-text">selecionar os arquivos para fazer upload</p>
+                    <p class="upload-hint">(Tipos permitidos: pdf, jpeg, png, pptx, pptx)</p>
+                    <input 
+                        type="file" 
+                        id="arquivoInput" 
+                        accept=".pdf,.pptx,.ppt,.jpg,.jpeg,.png,.gif,.webp"
+                        hidden
+                    >
+                </div>
+                
+                <div id="arquivoSelecionado" class="arquivo-selecionado" style="display: none;">
+                    <span id="nomeArquivoSelecionado"></span>
+                    <span id="tamanhoArquivo"></span>
+                </div>
+                
+                <button type="submit" class="btn-submit" id="btnFazerUpload">Fazer Upload</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="../js/arquivosCoordenador.js"></script>
+</body>
+</html>

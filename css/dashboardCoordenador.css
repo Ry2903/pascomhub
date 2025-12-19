@@ -86,6 +86,7 @@ body {
 }
 
 .page-title {
+    font-family: 'Montserrat Alternates', sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
     color: #093364;
@@ -232,6 +233,7 @@ body {
 }
 
 .modal-title {
+    font-family: 'Montserrat Alternates';
     font-size: 1.75rem;
     font-weight: 700;
     color: #093364;
@@ -265,11 +267,13 @@ body {
 
 .icon-igreja,
 .icon-calendario {
+    color:#093364;
     font-size: 4rem;
     margin-bottom: 16px;
 }
 
 .tipo-evento-card h3 {
+    font-family: 'Montserrat Alternates';
     font-size: 1.125rem;
     font-weight: 700;
     color: #093364;
@@ -277,6 +281,7 @@ body {
 }
 
 .tipo-evento-card p {
+    font-family: 'Montserrat';
     font-size: 0.875rem;
     color: #666;
     line-height: 1.5;
@@ -411,6 +416,7 @@ textarea.input-field {
 }
 
 .missa-icon {
+    color: #093364;
     font-size: 6rem;
     margin-bottom: 24px;
 }

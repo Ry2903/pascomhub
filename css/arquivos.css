@@ -32,16 +32,15 @@ body {
     gap: 12px;
 }
 
-.logo-circle {
-    width: 32px;
-    height: 32px;
-    background-color: #FDC631;
-    border-radius: 50%;
+.logo-container a {
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    color: #093364;
+}
+
+.logo-img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
 }
 
 .logo-text {
@@ -49,11 +48,6 @@ body {
     font-weight: 700;
     color: white;
     font-family: 'Montserrat Alternates', sans-serif;
-}
-
-.logo-img {
-    width: 50px;
-    height: 50px;
 }
 
 .navbar-buttons {
@@ -78,6 +72,7 @@ body {
     color: #093364;
 }
 
+
 /* ===== MAIN CONTAINER ===== */
 .main-container {
     max-width: 1200px;
@@ -86,6 +81,14 @@ body {
 }
 
 .page-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #093364;
+    margin-bottom: 32px;
+}
+
+.arq-title {
+    font-family: 'Montserrat Alternates', sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
     color: #093364;

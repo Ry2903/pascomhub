@@ -76,7 +76,6 @@ if (loginForm) {
             const resultado = await fazerLogin(email, senha);
             
             if (resultado.sucesso) {
-                alert('Login realizado com sucesso!');
                 // Aguarda um pouco antes de redirecionar
                 setTimeout(() => {
                     // Redireciona baseado no tipo de usuário

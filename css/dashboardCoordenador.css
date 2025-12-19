@@ -32,16 +32,15 @@ body {
     gap: 12px;
 }
 
-.logo-circle {
-    width: 32px;
-    height: 32px;
-    background-color: #FDC631;
-    border-radius: 50%;
+.logo-container a {
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    color: #093364;
+}
+
+.logo-img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
 }
 
 .logo-text {
@@ -51,14 +50,27 @@ body {
     font-family: 'Montserrat Alternates', sans-serif;
 }
 
-.logo-img {
-    width: 50px;
-    height: 50px;
-}
-
 .navbar-buttons {
     display: flex;
     gap: 12px;
+}
+
+#btnSair {
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 8px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#btnSair:hover {
+    border: 2px solid #c53030;
+    background-color: #c53030;
+    color: white;
 }
 
 .nav-btn {
@@ -93,6 +105,9 @@ body {
     margin-bottom: 32px;
 }
 
+#nomeCoord {
+    color: #FDC631;
+}
 /* ===== GRID DE EVENTOS ===== */
 .eventos-grid {
     display: grid;

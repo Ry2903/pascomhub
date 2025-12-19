@@ -1,5 +1,5 @@
 # pascomhub
-PascomHub é uma plataforma web moderna desenvolvida para agilizar o gerenciamento de escalas da PASCOM (Pastoral da Comunicação) da Paróquia Divino Espírito Santo. O sistema permite cadastro de membros, criação de eventos personalizados e missas, atribuição de funções e envio automático de notificações para funções ainda vagas.
+PascomHub é uma plataforma web moderna desenvolvida para o gerenciamento da Pastoral da Comunicação da Paróquia Divino Espírito Santo. O sistema permite cadastro de membros, criação de eventos personalizados e missas, atribuição de funções e biblioteca de arquivos úteis.
 
 ###### ⚠️ Essa é a segunda versão deste projeto, [consulte o repositório da primeira versão aqui](https://github.com/Ry2903/pascomhub-antigo/)
 
@@ -22,7 +22,7 @@ PascomHub é uma plataforma web moderna desenvolvida para agilizar o gerenciamen
 - Criação de eventos personalizados e missas padronizadas.
 - Funções e sub-habilidades associadas a cada evento.
 - Exibição de eventos em formato de pop-ups.
-- Funções já ocupadas são destacadas com botões diferentes e o membro que ocupou.
+- Funções já ocupadas são destacadas com botões diferentes.
 
 ---
 

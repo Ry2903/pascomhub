@@ -58,6 +58,10 @@ btnArquivos.addEventListener('click', () => {
     window.location.href = 'arquivosCoordenador.html';
 });
 
+textLogo.addEventListener('click', () => {
+  window.location.href = "dashboardCoordenador.html";
+});
+
 // ===== ABRIR MODAL TIPO EVENTO =====
 btnAdicionarEvento.addEventListener('click', () => {
     modalTipoEvento.classList.add('active');

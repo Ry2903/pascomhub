@@ -48,6 +48,7 @@ body {
     font-weight: 700;
     color: white;
     font-family: 'Montserrat Alternates', sans-serif;
+    cursor: pointer;
 }
 
 .navbar-buttons {
@@ -292,6 +293,7 @@ body {
 }
 
 .modal-title {
+    font-family: 'Montserrat Alternates', sans-serif;
     font-size: 1.75rem;
     font-weight: 700;
     color: #093364;
@@ -412,28 +414,31 @@ body {
 
 /* ===== RESPONSIVIDADE ===== */
 @media (max-width: 768px) {
+    .eventos-grid,
+    .tipo-evento-grid,
+    .habilidades-container,
+    .membros-grid {
+        grid-template-columns: 1fr;
+    }
+
     .navbar-content {
         flex-direction: column;
         gap: 16px;
-    }
-
-    .navbar-buttons {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .nav-btn {
-        width: 100%;
-    }
-
-    .arquivos-grid {
-        grid-template-columns: 1fr;
     }
 
     .modal-content {
         padding: 24px;
     }
 
+    .btn-add-evento {
+        bottom: 24px;
+        right: 24px;
+    }
+
+    .arquivos-grid {
+        grid-template-columns: 1fr;
+    }
+    
     .btn-add-arquivo {
         bottom: 24px;
         right: 24px;

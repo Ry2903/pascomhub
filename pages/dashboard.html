@@ -6,6 +6,7 @@
     <title>Dashboard | PascomHub</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/dashboard.css">
@@ -19,7 +20,7 @@
                 <a href="../pages/dashboard.html">
                     <img class="logo-img" src="../assets/pascomWhite.png" alt="Logo PASCOM">
                 </a>
-                <span class="logo-text">PascomHub</span>
+                <span class="logo-text" id="textLogo">PascomHub</span>
             </div>
             <div class="navbar-buttons">
                 <button class="nav-btn" id="btnArquivos">Arquivos</button>
@@ -31,7 +32,7 @@
 
     <!-- Container Principal -->
     <div class="main-container">
-        <h1 class="page-title">Olá, <span id="nomeUsuario">Usuário</span>! Veja os Eventos Disponíveis:</h1>
+        <h1 class="page-title">Olá, <span id="nomeUsuario"></span>! Veja os Eventos Disponíveis:</h1>
 
         <!-- Grid de Eventos -->
         <div class="eventos-grid" id="eventosGrid">

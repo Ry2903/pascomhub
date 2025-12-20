@@ -48,6 +48,7 @@ body {
     font-weight: 700;
     color: white;
     font-family: 'Montserrat Alternates', sans-serif;
+    cursor: pointer;
 }
 
 .navbar-buttons {
@@ -688,6 +689,15 @@ textarea.input-field {
     }
 
     .btn-add-evento {
+        bottom: 24px;
+        right: 24px;
+    }
+
+    .arquivos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-add-arquivo {
         bottom: 24px;
         right: 24px;
     }

@@ -40,6 +40,10 @@ btnArquivos.addEventListener('click', () => {
     window.location.href = 'arquivos.html';
 });
 
+textLogo.addEventListener('click', () => {
+  window.location.href = "dashboardCoordenador.html";
+});
+
 // ===== CARREGAR ARQUIVOS =====
 async function carregarArquivos() {
     const resultado = await buscarArquivos();

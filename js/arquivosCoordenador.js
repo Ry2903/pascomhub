@@ -56,6 +56,10 @@ btnArquivos.addEventListener('click', () => {
     window.location.href = 'arquivosCoordenador.html';
 });
 
+textLogo.addEventListener('click', () => {
+  window.location.href = "dashboardCoordenador.html";
+});
+
 
 // ===== ABRIR MODAL DE UPLOAD =====
 btnAdicionarArquivo.addEventListener('click', () => {

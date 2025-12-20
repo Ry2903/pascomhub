@@ -405,35 +405,33 @@ body {
 
 /* ===== RESPONSIVIDADE ===== */
 @media (max-width: 768px) {
+    .eventos-grid,
+    .tipo-evento-grid,
+    .habilidades-container,
+    .membros-grid {
+        grid-template-columns: 1fr;
+    }
+
     .navbar-content {
         flex-direction: column;
         gap: 16px;
     }
 
-    .eventos-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .habilidades-container {
-        grid-template-columns: 1fr;
-    }
-
     .modal-content {
         padding: 24px;
     }
-}
 
-@media (max-width: 480px) {
-    .page-title {
-        font-size: 1.25rem;
+    .btn-add-evento {
+        bottom: 24px;
+        right: 24px;
     }
 
-    .navbar-buttons {
-        flex-direction: column;
-        width: 100%;
+    .arquivos-grid {
+        grid-template-columns: 1fr;
     }
-
-    .nav-btn {
-        width: 100%;
+    
+    .btn-add-arquivo {
+        bottom: 24px;
+        right: 24px;
     }
 }
